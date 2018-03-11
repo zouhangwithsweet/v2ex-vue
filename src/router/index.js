@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import now from '@/components/now/now'
-import hot from '@/components/hot/hot'
+const now = () => import('components/now/now')
+const hot = () => import('components/hot/hot')
 import listDetail from '@/components/listDetail/listDetail'
+import nodes from '@/components/nodes/nodeList'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
                     component: listDetail
                 }
             ]
+        },
+        {
+            path: '/nodes',
+            name: '节点',
+            component: nodes
         }
     ]
 })

@@ -4,12 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import lazyload from 'vue-lazyload'
+
 // 引入css
 import './common/stylus/index.styl'
 // 引入Icon图库
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 Vue.component('icon', Icon)
+
+import fastclick from 'fastclick'
+fastclick.attach(document.body)
 
 // 懒加载图片
 Vue.use(lazyload, {

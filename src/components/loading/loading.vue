@@ -21,6 +21,6 @@
     text-align: center
     .desc
       line-height: 20px
-      font-size: $font-size-small
+      font-size: 24px
       color: #b7b7b7
 </style>

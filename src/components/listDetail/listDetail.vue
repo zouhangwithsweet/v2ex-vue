@@ -29,7 +29,7 @@
                         <ul>
                             <li class="reply-item" v-for="(item, index) in replyList" :key="index">
                                 <div class="detail-user">
-                                    <img class="user-avatar" v-lazy="item.member ? item.member.avatar_normal : ''">
+                                    <img class="user-avatar" v-lazy="item.member ? item.member.avatar_large : ''">
                                     <div class="user-info">
                                         <div class="user-name">{{item.member ? item.member.username : ''}}</div>
                                         <div class="user-node">

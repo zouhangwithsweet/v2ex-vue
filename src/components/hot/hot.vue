@@ -52,11 +52,6 @@
                 }
             }
         },
-        // beforeRouteEnter: (to, from, next) => {
-        //     next(vm => {
-        //         vm.fetchList()
-        //     })
-        // },
         components: {
             listBase,
             loading

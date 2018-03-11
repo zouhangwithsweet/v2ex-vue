@@ -4,7 +4,7 @@
             <slot></slot>
             <li @tap="select(item.id)" class="v-list__item" v-for="(item, index) in dataList" :key="index">
                 <div class="v-list__detail">
-                    <img v-lazy="item.member.avatar_large" class="v-list__img"/>
+                    <img :src="item.member.avatar_large" class="v-list__img"/>
                     <div class="v-list__desc">
                         <span class="v-list__desc--name">{{item.member.username}}</span>
                         <span class="v-list__desc--time">{{item.created | normalizeTime}}</span>
