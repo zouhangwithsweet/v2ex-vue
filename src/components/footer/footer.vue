@@ -1,5 +1,6 @@
 <template>
     <div class="footer">
+        <div class="example"></div>
         <router-link to="/hot" tag="div" class="footer-item">
             <icon name="fire" scale="1.5"></icon>
             <span>最热</span>

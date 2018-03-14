@@ -1,6 +1,5 @@
 const express = require('express')
 const path = require('path')
-const serveStatic = require('serve-static')
 const axios = require('axios')
 const app = express()
 // 引入第三方路由
@@ -19,6 +18,7 @@ for (let k in proxyConf) {
             headers: headerConf,
             params: req.query
         }).then(response => {
+            res.setHeader('Access-Control-Allow-Origin', '*')
             res.json(response.data)
         }).catch(e => {
             console.log(e)
