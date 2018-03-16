@@ -131,7 +131,7 @@
                 width 100%
                 height 100px
                 padding-top 20px
-                line-height 1.2
+                line-height calc(80/64)
                 font-size 32px
                 color #000
                 font-weight 500

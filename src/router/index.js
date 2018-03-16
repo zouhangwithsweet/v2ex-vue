@@ -38,7 +38,13 @@ export default new Router({
         {
             path: '/nodes',
             name: '节点',
-            component: nodes
+            component: nodes,
+            children: [
+                {
+                    path: ':id',
+                    component: listDetail
+                }
+            ]
         }
     ]
 })
