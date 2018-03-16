@@ -16,6 +16,10 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+
+# 注意，需要启动node服务
+
+node server.js
 ```
 #### 项目已经部署在[heroku.com](https://v2ex-vue.herokuapp.com/)
 * 主要技术为 vue全家桶，stylus,v-lazy,better-scroll；实现下拉刷新，懒加载功能
