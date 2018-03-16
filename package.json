@@ -8,8 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "node server.js",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js",
-    "postinstall": "npm install axios express"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
