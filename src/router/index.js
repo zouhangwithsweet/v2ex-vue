@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const now = () => import('components/now/now')
 const hot = () => import('components/hot/hot')
-import listDetail from '@/components/listDetail/listDetail'
-import nodes from '@/components/nodes/nodeList'
+const listDetail = () => import('components/listDetail/listDetail')
+const nodes = () => import('components/nodes/nodeList')
 
 Vue.use(Router)
 
