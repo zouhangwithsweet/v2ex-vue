@@ -6,5 +6,6 @@ module.exports = {
     '/api/node': 'https://www.v2ex.com/api/nodes/show.json',
     '/api/userinfo': 'https://www.v2ex.com/api/members/show.json',
     '/api/replies/show.json': 'https://www.v2ex.com/api/replies/show.json',
-    '/api/topics/show.json': 'https://www.v2ex.com/api/topics/show.json'
+    '/api/topics/show.json': 'https://www.v2ex.com/api/topics/show.json',
+    '/api/members/show.json': 'https://www.v2ex.com/api/members/show.json'
 }

@@ -84,7 +84,7 @@
                             desc: 'Linux'
                         },
                         {'node.js': 'node.js',
-                            name: 'node.js',
+                            name: 'nodejs',
                             desc: 'node.js'
                         },
                         { cloud: '云计算',

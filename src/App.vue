@@ -29,4 +29,5 @@
         font-size 36px
         font-weight 700
         color #000
+        border-bottom 1px solid #eee
 </style>

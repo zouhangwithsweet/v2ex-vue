@@ -147,6 +147,7 @@
         background-color #fff
         color #777
         padding 0 20px
+        border-bottom 1px solid #eee
         .icon-wrapper
             position absolute
             top 50%

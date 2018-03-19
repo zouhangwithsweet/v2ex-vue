@@ -15,6 +15,9 @@ Vue.component('icon', Icon)
 import fastclick from 'fastclick'
 fastclick.attach(document.body)
 
+import UserDetail from './components/userDetail/index'
+Vue.use(UserDetail)
+
 // 懒加载图片
 Vue.use(lazyload, {
     loading: require('@/assets/logo.png')

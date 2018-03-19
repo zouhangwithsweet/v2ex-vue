@@ -5,8 +5,8 @@ const app = express()
 // 引入第三方路由
 const proxyConf = require('./config/proxy')
 const headerConf = {
-    referer: 'https://www.v2ex.com',
-    host: 'www.v2ex.com'
+    // referer: 'https://www.v2ex.com',
+    // host: 'www.v2ex.com'
 }
 
 let apiRoutes = express.Router()
