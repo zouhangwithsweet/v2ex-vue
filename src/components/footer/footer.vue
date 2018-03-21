@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <div class="footer border-1px">
         <div class="example"></div>
         <router-link to="/hot" tag="div" class="footer-item">
             <icon name="fire" scale="1.5"></icon>
@@ -37,7 +37,6 @@ export default {
         align-items center
         position fixed
         height 88px
-        border-top 1px solid #eee
         bottom 0
         left 0
         right 0

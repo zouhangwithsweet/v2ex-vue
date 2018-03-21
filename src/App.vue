@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <div class="v-header">
+        <div class="v-header border-1px-b">
             v2er
         </div>
         <keep-alive>
@@ -29,5 +29,4 @@
         font-size 36px
         font-weight 700
         color #000
-        border-bottom 1px solid #eee
 </style>

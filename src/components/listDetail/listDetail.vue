@@ -1,7 +1,7 @@
 <template>
     <transition name="slider">
         <div class="list-detail" @click.stop @touch.stop>
-            <div class="detail-header">
+            <div class="detail-header .border-1px-b">
                 <div class="icon-wrapper" @click="back">
                     <icon name="angle-left" scale="1.5"></icon>
                 </div>
@@ -23,11 +23,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="detail-content" v-html="detail.content_rendered">
+                    <div class="detail-content border-1px-b" v-html="detail.content_rendered">
                     </div>
                     <div class="detail-reply">
                         <ul>
-                            <li class="reply-item" v-for="(item, index) in replyList" :key="index">
+                            <li class="reply-item border-1px-b" v-for="(item, index) in replyList" :key="index">
                                 <div class="detail-user">
                                     <img class="user-avatar" v-lazy="item.member ? item.member.avatar_large : ''">
                                     <div class="user-info">
@@ -147,7 +147,6 @@
         background-color #fff
         color #777
         padding 0 20px
-        border-bottom 1px solid #eee
         .icon-wrapper
             position absolute
             top 50%
@@ -190,7 +189,6 @@
             font-size 30px
             color #000
             line-height 1.5
-            border-bottom 1px solid #eee
             p
                 margin-bottom 20px
             img
@@ -200,7 +198,6 @@
             .reply-item
                 position relative
                 padding 20px 0
-                border-bottom 1px solid #eee
                 color #000
                 .reply-content
                     padding 10px 0 10px 106px

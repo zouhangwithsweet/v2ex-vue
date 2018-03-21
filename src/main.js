@@ -7,6 +7,7 @@ import lazyload from 'vue-lazyload'
 
 // 引入css
 import './common/stylus/index.styl'
+import './common/css/border.css'
 // 引入Icon图库
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
