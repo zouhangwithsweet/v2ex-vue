@@ -1,7 +1,7 @@
 <template>
     <transition name="slider">
         <div class="list-detail" @click.stop @touch.stop>
-            <div class="detail-header .border-1px-b">
+            <div class="detail-header border-1px-b">
                 <div class="icon-wrapper" @click="back">
                     <icon name="angle-left" scale="1.5"></icon>
                 </div>
