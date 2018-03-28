@@ -102,6 +102,7 @@
                     page: this.page
                 })
                 this.replyList = resp
+                this.scroll.refresh()
             },
             async fetchHeader() {
                 this.ready = true

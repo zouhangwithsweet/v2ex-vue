@@ -9,10 +9,10 @@
 
 .border-1px { 
     border-top: 1px solid transparent; 
-    border-image: svg(1px-border param(--color #eee)) 2 2 stretch; 
+    border-image: svg(1px-border param(--color #bbb)) 2 2 stretch; 
 }
 
 .border-1px-b {
     border-bottom: 1px solid transparent; 
-    border-image: svg(1px-border param(--color #eee)) 2 2 stretch; 
+    border-image: svg(1px-border param(--color #bbb)) 2 2 stretch; 
 }
