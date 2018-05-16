@@ -7,8 +7,8 @@
             <div class="user-inner" v-show="ready">
                 <img :src="avatar" class="user-avatar">
                 <div class="user-time">{{name}}</div>
-                <div class="user-time">{{createTime | normalizeTime}}</div>
-                <div class="user-time">{{url}}</div>
+                <div class="user-time">加入时间：{{createTime | normalizeTime}}</div>
+                <div class="user-time">url: {{url}}</div>
                 <ul class="user-info">
                     <li class="info-tei">
                         <span class="info-name"></span>

@@ -26,6 +26,7 @@
                     <div class="detail-content border-1px-b" v-html="detail.content_rendered">
                     </div>
                     <div class="detail-reply">
+                        <loading v-show="replyReady"></loading>
                         <ul>
                             <li class="reply-item border-1px-b" v-for="(item, index) in replyList" :key="index">
                                 <div class="detail-user">
@@ -68,6 +69,7 @@
             return {
                 detail: {},
                 ready: false,
+                replyReady: false,
                 replyList: [],
                 page_size: 100,
                 page: 1
@@ -96,6 +98,7 @@
                 this.$router.go(-1)
             },
             async fetchReply() {
+                this.replyReady = true
                 let resp = await getListDetail({
                     topic_id: this.$route.params.id,
                     page_size: this.page_size,
@@ -103,6 +106,7 @@
                 })
                 this.replyList = resp
                 this.scroll.refresh()
+                this.replyReady = false
             },
             async fetchHeader() {
                 this.ready = true
@@ -134,11 +138,11 @@
         overflow hidden
         position absolute
         width 100%
-        top 88px
+        top 44px
         bottom 88px
         padding 0 20px
     .detail-header
-        height 88px
+        height 44px
         display flex
         align-items center
         justify-content center

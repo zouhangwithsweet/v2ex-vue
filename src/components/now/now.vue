@@ -1,6 +1,6 @@
 <template>
     <div class="now" ref="now">
-        <list-base @pullDown="refresh" :dataList="dataList" @select="listDetail">
+        <list-base @pullDown="refresh" :dataList="dataList" @select="listDetail" ref="listBase">
             <div class="loading-wrapper" ref="loadWrapper">
                 <loading></loading>
             </div>
@@ -38,6 +38,7 @@
                 this.$refs.loadWrapper.style.height = '50px'
                 let resp = await getNowList()
                 this.dataList = resp
+                this.$refs.listBase.scroll.refresh()
                 this.$refs.loadWrapper.style.height = 0
             },
             debounce(fn, delay) {

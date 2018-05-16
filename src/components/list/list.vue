@@ -77,7 +77,7 @@
     .v-list
         position: absolute
         width 100%
-        top 88px
+        top 44px
         bottom 88px
         overflow: hidden
         background-color #eee

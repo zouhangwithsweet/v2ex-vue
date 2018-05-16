@@ -22,7 +22,7 @@
 
 <style lang="stylus">
     .v-header
-        height 88px
+        height 44px
         display flex
         justify-content center
         align-items center

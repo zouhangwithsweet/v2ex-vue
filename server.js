@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const axios = require('axios')
 const app = express()
+
 // 引入第三方路由
 const proxyConf = require('./config/proxy')
 const headerConf = {
@@ -13,7 +14,7 @@ let apiRoutes = express.Router()
 
 for (let k in proxyConf) {
     app.get(k, function(req, res) {
-        console.log(proxyConf[k])
+        // console.log(proxyConf[k])
         axios.get(proxyConf[k], {
             headers: headerConf,
             params: req.query
@@ -25,6 +26,7 @@ for (let k in proxyConf) {
         })
     })
 }
+app.get('*')
 
 app.use('/', apiRoutes)
 app.use(express.static(path.join(__dirname, 'dist')))
