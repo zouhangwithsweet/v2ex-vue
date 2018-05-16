@@ -8,6 +8,7 @@ const nodes = () => import('components/nodes/nodeList')
 Vue.use(Router)
 
 export default new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',

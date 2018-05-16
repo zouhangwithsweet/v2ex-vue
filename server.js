@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const axios = require('axios')
 const app = express()
-
+const history = require('connect-history-api-fallback')
 // 引入第三方路由
 const proxyConf = require('./config/proxy')
 const headerConf = {
@@ -26,8 +26,7 @@ for (let k in proxyConf) {
         })
     })
 }
-app.get('*')
-
+app.use(history())
 app.use('/', apiRoutes)
 app.use(express.static(path.join(__dirname, 'dist')))
 
