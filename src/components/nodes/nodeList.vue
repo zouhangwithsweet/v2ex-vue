@@ -229,7 +229,7 @@
     bottom 0
     background-color #fff
     .v-list
-        top 88px
+        top 44px
         bottom 88px
     .loading-wrapper
         overflow hidden
