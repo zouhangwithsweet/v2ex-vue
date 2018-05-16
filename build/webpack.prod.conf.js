@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
 
 const env = require('../config/prod.env')
 
@@ -115,7 +116,20 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new PrerenderSpaPlugin({
+        staticDir: path.join(__dirname, '../dist'),
+
+        // Optional - The path your rendered app should be output to.
+        // (Defaults to staticDir.)
+        // outputDir: path.join(__dirname, 'prerendered'),
+
+        // Optional - The location of index.html
+        // indexPath: path.join(__dirname, 'dist', 'index.html'),
+
+        // Required - Routes to render.
+        routes: ['/', '/now', '/hot']
+    })
   ]
 })
 
