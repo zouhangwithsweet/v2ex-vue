@@ -32,6 +32,10 @@
             dataList: {
                 type: Array,
                 default: []
+            },
+            refreshDelay: {
+                type: Number,
+                default: 20
             }
         },
         data() {
@@ -52,12 +56,22 @@
                 }
             })
         },
+        watch: {
+            dataList() {
+                setTimeout(() => {
+                    this.refresh()
+                }, this.refreshDelay)
+            }
+        },
         methods: {
             select(id) {
                 this.$emit('select', id)
             },
             getUser(name) {
                 this.$user(name)
+            },
+            refresh() {
+                if (this.scroll) this.scroll.refresh()
             }
         },
         filters: {
