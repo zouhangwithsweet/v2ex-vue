@@ -7,7 +7,7 @@
                 </div>
             </div>
             <loading v-show="ready"></loading>
-            <div class="content-wrapper" ref="content" v-show="!ready">
+            <scroller class="content-wrapper" ref="content" v-show="!ready">
                 <div>
                     <div class="detail-title">
                         {{detail.title}}
@@ -50,14 +50,14 @@
                         </ul>
                     </div>
                 </div>
-             </div>
+            </scroller>
         </div>
     </transition>
 </template>
 
 <script>
-    import BScroll from 'better-scroll'
     import loading from '@/components/loading/loading'
+    import scroller from '../scroll/scroll'
     import { getListHeader, getListDetail } from '@/api'
     export default {
         created() {
@@ -74,12 +74,6 @@
                 page_size: 100,
                 page: 1
             }
-        },
-        mounted() {
-            this.scroll = new BScroll(this.$refs.content, {
-                tap: true,
-                click: true
-            })
         },
         computed: {
             timerline() {
@@ -105,7 +99,7 @@
                     page: this.page
                 })
                 this.replyList = resp
-                this.scroll.refresh()
+                this.$refs.content.scroll.refresh()
                 this.replyReady = false
             },
             async fetchHeader() {
@@ -128,7 +122,8 @@
             }
         },
         components: {
-            loading
+            loading,
+            scroller
         }
     }
 </script>
@@ -136,8 +131,6 @@
 <style lang="stylus">
     .content-wrapper
         overflow hidden
-        position absolute
-        width 100%
         top 44px
         bottom 88px
         padding 0 20px
@@ -153,11 +146,10 @@
         color #777
         padding 0 20px
         .icon-wrapper
-            position absolute
-            top 50%
-            left 20px
-            transform translateY(-50%)
-            width 80px
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
     .list-detail
         position fixed
         top 0
@@ -208,6 +200,8 @@
                     padding 10px 0 10px 106px
                     font-size 28px
                     line-height 1.5
+                    img
+                        width 80%
                 .icon-heart
                     display flex
                     align-items center

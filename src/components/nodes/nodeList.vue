@@ -42,10 +42,7 @@
                     </div>
                     v2er
                 </div>
-                <list-base @pullDown="refresh" :dataList="dataList" @select="listDetail">
-                    <div class="loading-wrapper" ref="loadWrapper">
-                        <loading></loading>
-                    </div>
+                <list-base ref="listBase" @pullDown="refresh" :dataList="dataList" @select="listDetail">
                 </list-base>
                 <router-view></router-view>
             </div>
@@ -165,8 +162,9 @@
             back() {
                 this.nodeListShow = false
             },
-            refresh() {
-                this.fetchNodeDetail(this.name)
+            async refresh() {
+                await this.fetchNodeDetail(this.name)
+                this.$refs.listBase.scroll.finishPullDown()
             },
             go(item) {
                 this.name = item.name
@@ -174,15 +172,12 @@
                 this.nodeListShow = true
             },
             async fetchNodeDetail(name) {
-                // this.nodeListShow = false
                 this.dataList = []
-                this.$refs.loadWrapper.style.height = '50px'
                 let resp = await getListHeader({
                     node_name: name
                 })
                 this.dataList = resp
-                this.$refs.loadWrapper.style.height = 0
-                // this.nodeListShow = true
+                this.$refs.listBase.refresh()
             },
             listDetail(id) {
                 this.$router.push({

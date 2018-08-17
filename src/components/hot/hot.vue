@@ -1,9 +1,6 @@
 <template>
     <div class="now" ref="now">
         <list-base @pullDown="refresh" :dataList="dataList" @select="listDetail" ref="listBase">
-            <!-- <div class="loading-wrapper" ref="loadWrapper">
-                <loading></loading>
-            </div> -->
         </list-base>
         <router-view></router-view>
     </div>
@@ -25,21 +22,19 @@
         },
         methods: {
             listDetail(id) {
-                // console.log(id)
                 this.$router.push({
                     path: `/hot/${id}`
                 })
             },
-            refresh() {
-                this.fetchList()
+            async refresh() {
+                await this.fetchList()
+                this.$refs.listBase.scroll.finishPullDown()
             },
             // 获取数据
             async fetchList() {
-                // this.$refs.loadWrapper.style.height = '50px'
                 let resp = await getHotList()
                 this.dataList = resp
-                this.$refs.listBase.scroll.refresh()
-                // this.$refs.loadWrapper.style.height = 0
+                this.$refs.listBase.refresh()
             },
             debounce(fn, delay) {
                 let timer

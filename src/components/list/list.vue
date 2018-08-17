@@ -1,8 +1,7 @@
 <template>
-    <div class="v-list" ref="wrapper">
-        <ul>
-            <slot></slot>
-            <li @tap="select(item.id)" class="v-list__item" v-for="(item, index) in dataList" :key="index">
+    <scroller ref="scroller" @pullingDown="pullingDown">
+        <div class="v-list">
+            <li @click="select(item.id)" class="v-list__item" v-for="(item, index) in dataList" :key="index">
                 <div class="v-list__detail">
                     <img @tap.stop="getUser(item.member.username)" :src="item.member.avatar_large" class="v-list__img"/>
                     <div class="v-list__desc">
@@ -21,12 +20,14 @@
                     {{item.title}}
                 </div>
             </li>
-        </ul>
-    </div>
+            <loading style="position: absolute; top: -50px"></loading>
+        </div>
+    </scroller>
 </template>
 
 <script>
-    import BScroll from 'better-scroll'
+    import scroller from '../scroll/scroll'
+    import loading from '../loading/loading'
     export default {
         props: {
             dataList: {
@@ -46,22 +47,7 @@
             }
         },
         mounted() {
-            let wrapper = this.$refs.wrapper
-            this.scroll = new BScroll(wrapper, {
-                tap: true
-            })
-            this.scroll.on('touchEnd', pos => {
-                if (pos.y > 50) {
-                    this.$emit('pullDown')
-                }
-            })
-        },
-        watch: {
-            dataList() {
-                setTimeout(() => {
-                    this.refresh()
-                }, this.refreshDelay)
-            }
+            this.scroll = this.$refs.scroller.scroll
         },
         methods: {
             select(id) {
@@ -71,7 +57,10 @@
                 this.$user(name)
             },
             refresh() {
-                if (this.scroll) this.scroll.refresh()
+                this.$refs.scroller.refresh()
+            },
+            pullingDown() {
+                this.$emit('pullDown')
             }
         },
         filters: {
@@ -83,22 +72,22 @@
                 let d = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
                 return y + m + d
             }
+        },
+        components: {
+            scroller,
+            loading
         }
     }
 </script>
 
 <style lang="stylus">
     .v-list
-        position: absolute
         width 100%
-        top 44px
-        bottom 88px
-        overflow: hidden
         background-color #eee
+        position relative
         .v-list__item
             height 240px
             margin-bottom 8px
-            margin-top 8px
             padding 0 20px
             background-color #fff
             .v-list__detail
@@ -119,7 +108,7 @@
                     height 100%
                     .v-list__desc--name
                         font-size 36px
-                        color #000
+                        color #101010
                     .v-list__desc--time
                         font-size 28px
                         color #b1b1b1
@@ -149,9 +138,8 @@
                 height 100px
                 padding-top 20px
                 line-height calc(80/64)
-                font-size 32px
-                color #000
-                font-weight 500
+                font-size 28px
+                color #101010
                 overflow hidden
                 text-overflow ellipsis
                 display -webkit-box

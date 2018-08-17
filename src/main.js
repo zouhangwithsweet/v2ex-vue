@@ -21,6 +21,10 @@ fastclick.attach(document.body)
 import UserDetail from './components/userDetail/index'
 Vue.use(UserDetail)
 
+// response
+import './responsive.js'
+
+
 // 懒加载图片
 Vue.use(lazyload, {
     loading: require('@/assets/logo.png')

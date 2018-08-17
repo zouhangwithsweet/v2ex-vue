@@ -19,6 +19,10 @@
   .loading
     width: 100%
     text-align: center
+    display flex
+    justify-content center
+    align-items center
+    height 50px
     .desc
       line-height: 20px
       font-size: 24px

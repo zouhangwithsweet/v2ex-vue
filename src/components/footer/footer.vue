@@ -36,7 +36,7 @@ export default {
         justify-content space-between
         align-items center
         position fixed
-        height 88px
+        height 96px
         bottom 0
         left 0
         right 0
@@ -50,7 +50,7 @@ export default {
             align-items center
             flex-direction column
             font-size 20px
-            color #000
+            color #333
             &.router-link-active
                 color #42b983
 </style>

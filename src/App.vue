@@ -1,8 +1,5 @@
 <template>
     <div class="main">
-        <div class="v-header border-1px-b">
-            v2er
-        </div>
         <keep-alive>
             <router-view></router-view>
         </keep-alive>
@@ -29,4 +26,6 @@
         font-size 36px
         font-weight 700
         color #000
+        background-color #ffffff
+        z-index 99999
 </style>
